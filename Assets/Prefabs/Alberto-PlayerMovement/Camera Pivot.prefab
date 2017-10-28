@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCameraTarget: {fileID: 0}
   playerPivotTransform: {fileID: 0}
-  cameraFollowTime: 0.05
+  cameraFollowTime: 0.15
   cameraRotationTime: 0.5
 --- !u!124 &124736890405133742
 Behaviour:
