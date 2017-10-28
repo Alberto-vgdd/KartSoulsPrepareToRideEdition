@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Estus
   - RecuperarAlmas
+  - Invocacion
   layers:
   - Default
   - TransparentFX

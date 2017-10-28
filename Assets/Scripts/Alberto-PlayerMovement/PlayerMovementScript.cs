@@ -50,7 +50,7 @@ public class PlayerMovementScript : MonoBehaviour
 		playerTransform = GetComponent<Transform>();
 
 		currentStamina = maxStaminaValue;
-		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
 	}
 	
 
@@ -99,7 +99,7 @@ public class PlayerMovementScript : MonoBehaviour
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
-		//hudScript.SetStaminaBarValue((int)currentStamina);
+		hudScript.SetStaminaBarValue((int)currentStamina);
 		Debug.Log((int)currentStamina + "/" + (int)maxStaminaValue);
 	}
 }
