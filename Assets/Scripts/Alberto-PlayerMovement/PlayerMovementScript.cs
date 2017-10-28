@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour 
 {
-	[Header("Player Parameters")]
+	[Header("Player Movement Parameters")]
 	public float maxPlayerSpeed;
 	public float maxPlayerRotationAngle;
 	public float acceleration;
 	public float minAccelerationInfluence;
 
-	[Header("Turning Pivot")]
+	[Header("Auxiliar Pivot Transform")]
 	public Transform turningPivotTransform;
+	public Transform inclinationPivotTransfrom;
 
-	[Header("Stamina")]
+	[Header("Wall/Floor Colliding parameters")]
+	public LayerMask scenarioLayer;
+	private CapsuleCollider playerCapsuleCollider;
+
+
+	[Header("Stamina Parameters")]
 	public float maxStaminaValue;
 	public float staminaRecoverySpeed;
 	public float accelerateStaminaCost;
 	public float noStaminaSpeedMultiplier;
 
-	[Header("HUD")]
+	[Header("Life Parameters")]
+	public float maxLifeValue;
+
+
+	[Header("Scripts")]
 	public CanvasValues hudScript;
+	public CheckpointSystem checkpointSystem;
+
 
 
 	// Variables to manage movement inputs
@@ -37,6 +49,20 @@ public class PlayerMovementScript : MonoBehaviour
 	// Variables to manage stamina
 	private float currentStamina;
 
+	// Variable to manage life
+	private float currentLife;
+
+
+	// Variables to manage air control
+	private Vector3 airControlVelocity;
+
+	// Variables to manage Wall Collisions
+	float radius;
+	Vector3 point1;
+	Vector3 point2;
+	Vector3 direction;
+	RaycastHit hitInfo;
+
 
 
 	private Rigidbody playerRigidbody;
@@ -48,14 +74,28 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		playerRigidbody = GetComponent<Rigidbody>();
 		playerTransform = GetComponent<Transform>();
+		playerCapsuleCollider = GetComponent<CapsuleCollider>();
 
 		currentStamina = maxStaminaValue;
-		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		currentLife = maxLifeValue;
+		hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		hudScript.SetMaxLifebarValue((int)maxLifeValue);
+
+		radius = playerCapsuleCollider.radius;
 	}
 	
-
-	void Update () 
+	void Update()
 	{
+		// Update Stamina values
+		UpdateStamina();
+
+		// Update Stamina values
+		UpdateLife();
+	}
+
+	void FixedUpdate () 
+	{
+
 		// Read inputs. Invert horizontal inputs in case the player is moving backward
 		forwardInput = ( Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0f) ?  Mathf.Sign(Input.GetAxisRaw("Vertical")) : 0f;
 		turningInput = ( forwardInput != 0) ? Input.GetAxisRaw("Horizontal") * forwardInput: Input.GetAxisRaw("Horizontal");
@@ -63,26 +103,65 @@ public class PlayerMovementScript : MonoBehaviour
 		// Transform the forwardInput to a acceleration value
 		forwardAcceleration = Mathf.SmoothDamp(forwardAcceleration,forwardInput,ref currentFowardVelocity,acceleration);
 
-		// Update Stamina values
-		UpdateStamina();
 
 		// Calculate how the player will turn based on its speed
 		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(Vector3.Scale(playerRigidbody.velocity,turningPivotTransform.forward).magnitude/maxPlayerSpeed);
 		
+
 		// Rotate the player 
-		turningPivotTransform.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
+		turningPivotTransform.Rotate(Vector3.up ,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.fixedDeltaTime,Space.Self);
 		
-		// Set the new movement velocity
+
+		// Set the new movement velocity based on stamina
 		if (currentStamina > 0)
 		{
-			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
+			newVelocity = Vector3.Scale(turningPivotTransform.forward, new Vector3(1,0,1))*forwardAcceleration*maxPlayerSpeed;
 		}
 		else
 		{
-			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed*noStaminaSpeedMultiplier;
+			newVelocity =  Vector3.Scale(turningPivotTransform.forward, new Vector3(1,0,1))*forwardAcceleration*maxPlayerSpeed*noStaminaSpeedMultiplier;
+		}
+
+
+
+		// Avoid wall collision and slopes climbing
+		direction = newVelocity.normalized;
+		if (Physics.CapsuleCast(point1,point2,radius,direction,out hitInfo,1f, scenarioLayer.value))
+		{
+			if (Vector3.Angle(Vector3.up,hitInfo.normal) > 45f)
+			{
+				newVelocity -= Vector3.Project(newVelocity,Vector3.Scale(hitInfo.normal, new Vector3(1,0,1)));
+			}
 		}
 		
-		playerRigidbody.velocity = newVelocity + Vector3.up*playerRigidbody.velocity.y;
+
+
+		// Calculate velocity direction
+		playerRigidbody.velocity = newVelocity + Vector3.up*(playerRigidbody.velocity.y);
+
+
+		// Inclinate the kart 
+		point1 =  playerTransform.position + playerCapsuleCollider.center + Vector3.up*(playerCapsuleCollider.height/2-playerCapsuleCollider.radius);
+		point2 = playerTransform.position + playerCapsuleCollider.center + Vector3.up*(-playerCapsuleCollider.height/2+playerCapsuleCollider.radius);
+		direction = Vector3.down;
+
+		// Check if grounded, then interpolate the inclination
+		if (Physics.CapsuleCast(point1,point2,radius*0.9f,direction,out hitInfo,0.1f,scenarioLayer.value))
+		{
+			
+			if (hitInfo.normal != Vector3.up)
+			{
+				playerRigidbody.velocity  = Vector3.ProjectOnPlane(playerRigidbody.velocity ,hitInfo.normal);
+			}
+
+			inclinationPivotTransfrom.up = 	Vector3.SmoothDamp(inclinationPivotTransfrom.up, hitInfo.normal, ref airControlVelocity, 0.1f);
+		}
+		else
+		{
+			inclinationPivotTransfrom.up = 	Vector3.SmoothDamp(inclinationPivotTransfrom.up, Vector3.up, ref airControlVelocity, 0.25f);
+		}
+
+		// Add gravity
 		playerRigidbody.AddForce(Physics.gravity,ForceMode.Acceleration);
 	}
 
@@ -91,15 +170,26 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		if (Mathf.Abs(forwardAcceleration) < 0.1f)
 		{
-			currentStamina += staminaRecoverySpeed*Time.deltaTime;
+			currentStamina += staminaRecoverySpeed*Time.fixedDeltaTime;
 		}
 		else
 		{
-			currentStamina -= accelerateStaminaCost*Time.deltaTime;
+			currentStamina -= accelerateStaminaCost*Time.fixedDeltaTime;
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
-		//hudScript.SetStaminaBarValue((int)currentStamina);
-		Debug.Log((int)currentStamina + "/" + (int)maxStaminaValue);
+		hudScript.SetStaminaBarValue((int)currentStamina);
+
+	}
+
+	void UpdateLife()
+	{
+		hudScript.SetLifebarValue((int)currentLife);
+	}
+
+
+	public void ApplyLife(float life)
+	{
+		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
 	}
 }

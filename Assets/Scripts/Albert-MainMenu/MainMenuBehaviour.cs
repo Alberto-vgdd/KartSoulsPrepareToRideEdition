@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenuBehaviour : MonoBehaviour {
 
-	public GameObject LogoCanvas;
-	public GameObject playButton;
-	public GameObject QuitButton;
-	public GameObject gameTitle;
 
 	// Use this for initialization
 	void Start () 

@@ -375,15 +375,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 224481632215983422, guid: f641d368bf3d2894f8035d7e78b30624,
+    - target: {fileID: 224851292601566926, guid: f641d368bf3d2894f8035d7e78b30624,
         type: 2}
       propertyPath: m_LocalPosition.y
       value: -155.86978
       objectReference: {fileID: 0}
-    - target: {fileID: 224755813288168842, guid: f641d368bf3d2894f8035d7e78b30624,
+    - target: {fileID: 224481564355257610, guid: f641d368bf3d2894f8035d7e78b30624,
         type: 2}
       propertyPath: m_LocalPosition.y
       value: 103.91318
+      objectReference: {fileID: 0}
+    - target: {fileID: 224481632215983422, guid: f641d368bf3d2894f8035d7e78b30624,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -317.1625
       objectReference: {fileID: 0}
     - target: {fileID: 224478736085425048, guid: f641d368bf3d2894f8035d7e78b30624,
         type: 2}
@@ -395,8 +400,9 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 253
       objectReference: {fileID: 0}
-    - target: {fileID: 224851292601566926, guid: f641d368bf3d2894f8035d7e78b30624,
+    - target: {fileID: 111712813004303800, guid: f641d368bf3d2894f8035d7e78b30624,
         type: 2}
+
       propertyPath: m_LocalPosition.y
       value: -51.95659
       objectReference: {fileID: 0}
@@ -706,8 +712,8 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: f3b53b83673fe734b92ea17cc375f983, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
+  m_Pitch: 0.5
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
