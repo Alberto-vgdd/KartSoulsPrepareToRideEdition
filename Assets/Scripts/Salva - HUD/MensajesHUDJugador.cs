@@ -39,7 +39,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (col.tag == "Checkpoint") {
-			canvasController.ShowTitleText ("BONFIRE LIT", Color.white);
+			canvasController.ShowTitleText ("BONFIRE LIT", Color.yellow);
 		}
 
 		if (col.tag == "Campana1") {
