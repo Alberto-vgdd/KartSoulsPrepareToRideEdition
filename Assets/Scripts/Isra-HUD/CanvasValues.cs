@@ -21,6 +21,9 @@ public class CanvasValues : MonoBehaviour {
 	public Image m_PoisonFillImage;
 	Color m_PoisonDefaultColor;
 
+	public Text m_ZoneNameText;
+	public Animation m_ZoneNameAnimation;
+
 	bool fill;
 
 	public bool m_IsPoisoned;
@@ -106,6 +109,11 @@ public class CanvasValues : MonoBehaviour {
 
 	public float GetPoisonValue(){
 		return m_PoisonSlider.value;
+	}
+
+	public void ShowZoneName(string name){
+		m_ZoneNameText.text = name;
+		m_ZoneNameAnimation.Play();
 	}
 
 	void Update(){
