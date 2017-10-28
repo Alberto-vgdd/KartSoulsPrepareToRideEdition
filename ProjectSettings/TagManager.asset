@@ -7,6 +7,12 @@ TagManager:
   - Muerte
   - Ground
   - Checkpoint
+  - Estus
+  - RecuperarAlmas
+  - Invocacion
+  - Veneno
+  - Campana1
+  - Campana2
   layers:
   - Default
   - TransparentFX
