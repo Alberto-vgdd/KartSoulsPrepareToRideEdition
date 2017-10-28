@@ -48,7 +48,7 @@ public class PlayerMovementScript : MonoBehaviour
 		forwardAcceleration = Mathf.SmoothDamp(forwardAcceleration,forwardInput,ref currentFowardVelocity,acceleration);
 
 		// Calculate how the player will turn based on its speed
-		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(playerRigidbody.velocity.magnitude/maxPlayerSpeed);
+		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(Vector3.Scale(playerRigidbody.velocity,turningPivotTransform.forward).magnitude/maxPlayerSpeed);
 		
 		// Rotate the player 
 		turningPivotTransform.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
@@ -57,6 +57,7 @@ public class PlayerMovementScript : MonoBehaviour
 		newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
 
 
-		playerRigidbody.velocity = newVelocity;
+		playerRigidbody.velocity = newVelocity + Vector3.up*playerRigidbody.velocity.y;
+		playerRigidbody.AddForce(Physics.gravity,ForceMode.Acceleration);
 	}
 }
