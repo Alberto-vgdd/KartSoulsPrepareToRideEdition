@@ -151,6 +151,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114160657078467584, guid: 90453713de0169844857ff4f01eab66a,
+        type: 2}
+      propertyPath: hudScript
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90453713de0169844857ff4f01eab66a, type: 2}
   m_IsPrefabParent: 0

@@ -19,6 +19,9 @@ public class PlayerMovementScript : MonoBehaviour
 	public float accelerateStaminaCost;
 	public float noStaminaSpeedMultiplier;
 
+	[Header("HUD")]
+	public CanvasValues hudScript;
+
 
 	// Variables to manage movement inputs
 	private float forwardInput;
@@ -47,6 +50,7 @@ public class PlayerMovementScript : MonoBehaviour
 		playerTransform = GetComponent<Transform>();
 
 		currentStamina = maxStaminaValue;
+		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
 	}
 	
 
@@ -95,6 +99,7 @@ public class PlayerMovementScript : MonoBehaviour
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
+		//hudScript.SetStaminaBarValue((int)currentStamina);
 		Debug.Log((int)currentStamina + "/" + (int)maxStaminaValue);
 	}
 }
