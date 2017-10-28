@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour 
 {
-	[Header("Player Movement Parameters")]
+	[Header("Player Parameters")]
 	public float maxPlayerSpeed;
 	public float maxPlayerRotationAngle;
 	public float acceleration;
 	public float minAccelerationInfluence;
 
-	[Header("Auxiliar Pivot Transform")]
+	[Header("Turning Pivot")]
 	public Transform turningPivotTransform;
-	public Transform inclinationPivotTransfrom;
 
-	[Header("Wall/Floor Colliding parameters")]
-	public LayerMask scenarioLayer;
-	private CapsuleCollider playerCapsuleCollider;
-
-
-	[Header("Stamina Parameters")]
+	[Header("Stamina")]
 	public float maxStaminaValue;
 	public float staminaRecoverySpeed;
 	public float accelerateStaminaCost;
 	public float noStaminaSpeedMultiplier;
 
-	[Header("HUD script")]
+	[Header("HUD")]
 	public CanvasValues hudScript;
-
 
 
 	// Variables to manage movement inputs
@@ -44,16 +37,6 @@ public class PlayerMovementScript : MonoBehaviour
 	// Variables to manage stamina
 	private float currentStamina;
 
-	// Variables to manage air control
-	private Vector3 airControlVelocity;
-
-	// Variables to manage Wall Collisions
-	float radius;
-	Vector3 point1;
-	Vector3 point2;
-	Vector3 direction;
-	RaycastHit hitInfo;
-
 
 
 	private Rigidbody playerRigidbody;
@@ -65,18 +48,14 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		playerRigidbody = GetComponent<Rigidbody>();
 		playerTransform = GetComponent<Transform>();
-		playerCapsuleCollider = GetComponent<CapsuleCollider>();
 
 		currentStamina = maxStaminaValue;
-		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
-
-		radius = playerCapsuleCollider.radius;
+		hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
 	}
 	
 
-	void FixedUpdate () 
+	void Update () 
 	{
-
 		// Read inputs. Invert horizontal inputs in case the player is moving backward
 		forwardInput = ( Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0f) ?  Mathf.Sign(Input.GetAxisRaw("Vertical")) : 0f;
 		turningInput = ( forwardInput != 0) ? Input.GetAxisRaw("Horizontal") * forwardInput: Input.GetAxisRaw("Horizontal");
@@ -90,61 +69,20 @@ public class PlayerMovementScript : MonoBehaviour
 		// Calculate how the player will turn based on its speed
 		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(Vector3.Scale(playerRigidbody.velocity,turningPivotTransform.forward).magnitude/maxPlayerSpeed);
 		
-
 		// Rotate the player 
-		turningPivotTransform.Rotate(Vector3.up ,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.fixedDeltaTime,Space.Self);
+		turningPivotTransform.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
 		
-
-		// Set the new movement velocity based on stamina
+		// Set the new movement velocity
 		if (currentStamina > 0)
 		{
-			newVelocity = Vector3.Scale(turningPivotTransform.forward, new Vector3(1,0,1))*forwardAcceleration*maxPlayerSpeed;
+			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
 		}
 		else
 		{
-			newVelocity =  Vector3.Scale(turningPivotTransform.forward, new Vector3(1,0,1))*forwardAcceleration*maxPlayerSpeed*noStaminaSpeedMultiplier;
-		}
-
-
-
-		// Avoid wall collision and slopes climbing
-		direction = newVelocity.normalized;
-		if (Physics.CapsuleCast(point1,point2,radius,direction,out hitInfo,1f, scenarioLayer.value))
-		{
-			if (Vector3.Angle(Vector3.up,hitInfo.normal) > 45f)
-			{
-				newVelocity -= Vector3.Project(newVelocity,Vector3.Scale(hitInfo.normal, new Vector3(1,0,1)));
-			}
+			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed*noStaminaSpeedMultiplier;
 		}
 		
-
-
-		// Calculate velocity direction
-		playerRigidbody.velocity = newVelocity + Vector3.up*(playerRigidbody.velocity.y);
-
-
-		// Inclinate the kart 
-		point1 =  playerTransform.position + playerCapsuleCollider.center + Vector3.up*(playerCapsuleCollider.height/2-playerCapsuleCollider.radius);
-		point2 = playerTransform.position + playerCapsuleCollider.center + Vector3.up*(-playerCapsuleCollider.height/2+playerCapsuleCollider.radius);
-		direction = Vector3.down;
-
-		// Check if grounded, then interpolate the inclination
-		if (Physics.CapsuleCast(point1,point2,radius*0.9f,direction,out hitInfo,0.1f,scenarioLayer.value))
-		{
-			
-			if (hitInfo.normal != Vector3.up)
-			{
-				playerRigidbody.velocity  = Vector3.ProjectOnPlane(playerRigidbody.velocity ,hitInfo.normal);
-			}
-
-			inclinationPivotTransfrom.up = 	Vector3.SmoothDamp(inclinationPivotTransfrom.up, hitInfo.normal, ref airControlVelocity, 0.1f);
-		}
-		else
-		{
-			inclinationPivotTransfrom.up = 	Vector3.SmoothDamp(inclinationPivotTransfrom.up, Vector3.up, ref airControlVelocity, 0.25f);
-		}
-
-		// Add gravity
+		playerRigidbody.velocity = newVelocity + Vector3.up*playerRigidbody.velocity.y;
 		playerRigidbody.AddForce(Physics.gravity,ForceMode.Acceleration);
 	}
 
@@ -153,16 +91,15 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		if (Mathf.Abs(forwardAcceleration) < 0.1f)
 		{
-			currentStamina += staminaRecoverySpeed*Time.fixedDeltaTime;
+			currentStamina += staminaRecoverySpeed*Time.deltaTime;
 		}
 		else
 		{
-			currentStamina -= accelerateStaminaCost*Time.fixedDeltaTime;
+			currentStamina -= accelerateStaminaCost*Time.deltaTime;
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
-		//hudScript.SetStaminaBarValue((int)currentStamina);
-
+		hudScript.SetStaminaBarValue((int)currentStamina);
+		Debug.Log((int)currentStamina + "/" + (int)maxStaminaValue);
 	}
-
 }
