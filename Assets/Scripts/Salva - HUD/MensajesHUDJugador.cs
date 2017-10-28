@@ -7,12 +7,19 @@ public class MensajesHUDJugador : MonoBehaviour {
 	CanvasValues canvasController;
 	private float tiempoFalloInvocar;
 	private bool contarFallo;
+	private bool envenenando;
 
 	// Use this for initialization
 	void Start () {
 		canvasController = GameObject.Find ("HUD Canvas").GetComponent<CanvasValues> ();
 		tiempoFalloInvocar = 0;
 		contarFallo = false;
+	}
+
+	void OnTriggerExit(Collider col){
+		if (col.tag == "Veneno") {
+			envenenando = false;
+		}
 	}
 
 	void OnTriggerEnter(Collider col){
@@ -35,11 +42,25 @@ public class MensajesHUDJugador : MonoBehaviour {
 			canvasController.ShowDialogText ("Bonfire Lit");
 		}
 
+		if (col.tag == "Campana1") {
+			canvasController.ShowDialogText ("Gargoyle Bell activated");
+		}
+
+		if (col.tag == "Campana2") {
+			canvasController.ShowDialogText ("Quelaag Bell activated");
+		}
+
 		if (col.tag == "Invocacion") {
 			canvasController.ShowDialogText ("Summoning x_MinecraftSexMaster_x phantom");
 			contarFallo = true;
 		}
-	
+	}
+
+	void OnTriggerStay(Collider col){
+		if (col.tag == "Veneno" && canvasController.m_IsPoisoned == false) {
+			canvasController.SetPoisonValue (canvasController.GetPoisonValue () + 0.2f);
+			envenenando = true;
+		}
 	}
 	// Update is called once per frame
 	void Update () {
@@ -53,6 +74,13 @@ public class MensajesHUDJugador : MonoBehaviour {
 				tiempoFalloInvocar = 0;
 			}
 		}
-		
+
+		if (envenenando == false && canvasController.m_IsPoisoned == false) {
+			canvasController.SetPoisonValue (canvasController.GetPoisonValue () - 0.2f);
+		}
+
+		if (canvasController.m_IsPoisoned == true) {
+			canvasController.SetPoisonValue (canvasController.GetPoisonValue () - 0.05f);
+		}
 	}
 }
