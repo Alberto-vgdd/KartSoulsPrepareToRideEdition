@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 25c7c805d4b94df41ac44f8f9e996246
-timeCreated: 1509194804
+guid: fd7fb8a0781155e43b63c17d7883d1d0
+timeCreated: 1509196550
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -27,7 +27,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pared
-    second: {fileID: 2100000, guid: 6400ccde64b276b4e81c3a322d0553ff, type: 2}
+    second: {fileID: 2100000, guid: cb0953810fdd00347aa999843d94d507, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
