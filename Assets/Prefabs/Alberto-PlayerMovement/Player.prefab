@@ -288,8 +288,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848877620488786}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -59.300007, y: 53.9, z: 63.67}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.54, y: 0, z: 1.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4556055105320536}
@@ -725,11 +725,12 @@ MonoBehaviour:
   inclinationPivotTransfrom: {fileID: 4556055105320536}
   scenarioLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   maxStaminaValue: 100
   staminaRecoverySpeed: 30
   accelerateStaminaCost: 7.5
   noStaminaSpeedMultiplier: 0.25
+  maxLifeValue: 100
   hudScript: {fileID: 0}
 --- !u!136 &136621688210755432
 CapsuleCollider:

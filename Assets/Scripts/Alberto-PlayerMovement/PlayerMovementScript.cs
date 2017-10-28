@@ -25,6 +25,10 @@ public class PlayerMovementScript : MonoBehaviour
 	public float accelerateStaminaCost;
 	public float noStaminaSpeedMultiplier;
 
+	[Header("Life Parameters")]
+	public float maxLifeValue;
+
+
 	[Header("HUD script")]
 	public CanvasValues hudScript;
 
@@ -43,6 +47,10 @@ public class PlayerMovementScript : MonoBehaviour
 
 	// Variables to manage stamina
 	private float currentStamina;
+
+	// Variable to manage life
+	private float currentLife;
+
 
 	// Variables to manage air control
 	private Vector3 airControlVelocity;
@@ -68,11 +76,21 @@ public class PlayerMovementScript : MonoBehaviour
 		playerCapsuleCollider = GetComponent<CapsuleCollider>();
 
 		currentStamina = maxStaminaValue;
-		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		currentLife = maxLifeValue;
+		hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		hudScript.SetMaxLifebarValue((int)maxLifeValue);
 
 		radius = playerCapsuleCollider.radius;
 	}
 	
+	void Update()
+	{
+		// Update Stamina values
+		UpdateStamina();
+
+		// Update Stamina values
+		UpdateLife();
+	}
 
 	void FixedUpdate () 
 	{
@@ -84,8 +102,6 @@ public class PlayerMovementScript : MonoBehaviour
 		// Transform the forwardInput to a acceleration value
 		forwardAcceleration = Mathf.SmoothDamp(forwardAcceleration,forwardInput,ref currentFowardVelocity,acceleration);
 
-		// Update Stamina values
-		UpdateStamina();
 
 		// Calculate how the player will turn based on its speed
 		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(Vector3.Scale(playerRigidbody.velocity,turningPivotTransform.forward).magnitude/maxPlayerSpeed);
@@ -161,8 +177,18 @@ public class PlayerMovementScript : MonoBehaviour
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
-		//hudScript.SetStaminaBarValue((int)currentStamina);
+		hudScript.SetStaminaBarValue((int)currentStamina);
 
 	}
 
+	void UpdateLife()
+	{
+		hudScript.SetLifebarValue((int)currentLife);
+	}
+
+
+	public void ApplyLife(float life)
+	{
+		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
+	}
 }
