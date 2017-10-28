@@ -9,6 +9,8 @@ public class MensajesHUDJugador : MonoBehaviour {
 	private bool contarFallo;
 	private bool envenenando;
 
+	public CheckpointSystem checkpointSystem;
+
 	// Use this for initialization
 	void Start () {
 		canvasController = GameObject.Find ("HUD Canvas").GetComponent<CanvasValues> ();
@@ -40,6 +42,8 @@ public class MensajesHUDJugador : MonoBehaviour {
 
 		if (col.tag == "Checkpoint") {
 			canvasController.ShowTitleText ("BONFIRE LIT", Color.yellow);
+			checkpointSystem.SetLastCheckpoint(col.transform);
+			col.enabled = false;
 		}
 
 		if (col.tag == "Campana1") {

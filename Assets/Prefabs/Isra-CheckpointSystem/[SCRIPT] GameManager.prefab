@@ -52,5 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LastCheckPoint: {fileID: 0}
-  m_PlayerStartingPosition: {x: 0, y: 0, z: 0}
   m_Player: {fileID: 0}
