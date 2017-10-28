@@ -1635,10 +1635,9 @@ GameObject:
   - component: {fileID: 117237245}
   - component: {fileID: 117237248}
   - component: {fileID: 117237247}
-  - component: {fileID: 117237246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (11)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1656,20 +1655,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &117237246
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117237244}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &117237247
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2124,10 +2109,9 @@ GameObject:
   - component: {fileID: 174542024}
   - component: {fileID: 174542027}
   - component: {fileID: 174542026}
-  - component: {fileID: 174542025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (12)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2145,20 +2129,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &174542025
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 174542023}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &174542026
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4987,10 +4957,9 @@ GameObject:
   - component: {fileID: 368724349}
   - component: {fileID: 368724352}
   - component: {fileID: 368724351}
-  - component: {fileID: 368724350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (14)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5002,26 +4971,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 368724348}
   m_LocalRotation: {x: -0.0000007748604, y: -0.7071068, z: -0.7071068, w: 0.0000007748604}
-  m_LocalPosition: {x: 16.585, y: -16.110596, z: -4.3900547}
+  m_LocalPosition: {x: 16.585, y: -16.110596, z: -4.146}
   m_LocalScale: {x: 357.77438, y: 204.42085, z: 204.42085}
   m_Children: []
   m_Father: {fileID: 1537206848}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &368724350
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 368724348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &368724351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7581,9 +7536,9 @@ GameObject:
   - component: {fileID: 669913499}
   - component: {fileID: 669913498}
   - component: {fileID: 669913497}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (20)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10934,7 +10889,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4980551251548620, guid: d64766e174ab8344ba4026d8996d9ec4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.543533
+      value: 16.54
       objectReference: {fileID: 0}
     - target: {fileID: 4980551251548620, guid: d64766e174ab8344ba4026d8996d9ec4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10942,7 +10897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4980551251548620, guid: d64766e174ab8344ba4026d8996d9ec4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -22.791138
+      value: -26.53
       objectReference: {fileID: 0}
     - target: {fileID: 4980551251548620, guid: d64766e174ab8344ba4026d8996d9ec4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17210,10 +17165,9 @@ GameObject:
   - component: {fileID: 1091239415}
   - component: {fileID: 1091239418}
   - component: {fileID: 1091239417}
-  - component: {fileID: 1091239416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (10)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17231,20 +17185,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &1091239416
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1091239414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &1091239417
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17583,10 +17523,9 @@ GameObject:
   - component: {fileID: 1139419192}
   - component: {fileID: 1139419195}
   - component: {fileID: 1139419194}
-  - component: {fileID: 1139419193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (13)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17604,20 +17543,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &1139419193
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1139419191}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &1139419194
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18693,12 +18618,12 @@ Prefab:
     - target: {fileID: 224072812794499976, guid: 2be9186bf9c409d44a0055ea28fecbdc,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 400
+      value: 229.5
       objectReference: {fileID: 0}
     - target: {fileID: 224072812794499976, guid: 2be9186bf9c409d44a0055ea28fecbdc,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 183.5
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 224072812794499976, guid: 2be9186bf9c409d44a0055ea28fecbdc,
         type: 2}
@@ -19931,12 +19856,12 @@ Prefab:
     - target: {fileID: 224944006831895928, guid: ba45541504dcb6e43ba4ba8cf3d300ea,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 400
+      value: 229.5
       objectReference: {fileID: 0}
     - target: {fileID: 224944006831895928, guid: ba45541504dcb6e43ba4ba8cf3d300ea,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 183.5
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 224944006831895928, guid: ba45541504dcb6e43ba4ba8cf3d300ea,
         type: 2}
@@ -21802,10 +21727,9 @@ GameObject:
   - component: {fileID: 1395904113}
   - component: {fileID: 1395904116}
   - component: {fileID: 1395904115}
-  - component: {fileID: 1395904114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (9)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21823,20 +21747,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &1395904114
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1395904112}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &1395904115
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26722,10 +26632,9 @@ GameObject:
   - component: {fileID: 1661116838}
   - component: {fileID: 1661116841}
   - component: {fileID: 1661116840}
-  - component: {fileID: 1661116839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (8)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26743,20 +26652,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &1661116839
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1661116837}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &1661116840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27712,10 +27607,9 @@ GameObject:
   - component: {fileID: 1735229257}
   - component: {fileID: 1735229260}
   - component: {fileID: 1735229259}
-  - component: {fileID: 1735229258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escalera (15)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27733,20 +27627,6 @@ Transform:
   m_Father: {fileID: 1537206848}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
---- !u!64 &1735229258
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1735229256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 9808a909c17b7f74b89fd59adf415541, type: 3}
 --- !u!23 &1735229259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31900,7 +31780,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4442046436405062, guid: 90453713de0169844857ff4f01eab66a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -87.4
+      value: -86.95
       objectReference: {fileID: 0}
     - target: {fileID: 4442046436405062, guid: 90453713de0169844857ff4f01eab66a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -31908,7 +31788,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4442046436405062, guid: 90453713de0169844857ff4f01eab66a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -195.75
+      value: -224.34
       objectReference: {fileID: 0}
     - target: {fileID: 4442046436405062, guid: 90453713de0169844857ff4f01eab66a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -32252,6 +32132,90 @@ Transform:
   m_PrefabParentObject: {fileID: 4980551251548620, guid: d64766e174ab8344ba4026d8996d9ec4,
     type: 2}
   m_PrefabInternal: {fileID: 1809446977}
+--- !u!1 &2091878755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2091878759}
+  - component: {fileID: 2091878758}
+  - component: {fileID: 2091878757}
+  - component: {fileID: 2091878756}
+  m_Layer: 8
+  m_Name: INVISIBLE RAMPA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &2091878756
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091878755}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &2091878757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091878755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2091878758
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091878755}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2091878759
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091878755}
+  m_LocalRotation: {x: -0.20197861, y: -0, z: -0, w: 0.97938997}
+  m_LocalPosition: {x: -87.631, y: 45.218, z: -186.332}
+  m_LocalScale: {x: 4.0501685, y: 1, z: 33.340275}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 105
+  m_LocalEulerAnglesHint: {x: -23.305, y: 0, z: 0}
 --- !u!1 &2093318170
 GameObject:
   m_ObjectHideFlags: 0
