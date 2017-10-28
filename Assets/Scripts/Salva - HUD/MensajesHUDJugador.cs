@@ -8,6 +8,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 	private float tiempoFalloInvocar;
 	private bool contarFallo;
 	private bool envenenando;
+	public bool invadido;
 
 	public CheckpointSystem checkpointSystem;
 
@@ -57,6 +58,9 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if (col.tag == "Invocacion") {
 			canvasController.ShowDialogText ("Summoning x_MinecraftSexMaster_x phantom");
 			contarFallo = true;
+		}
+		if(col.tag == "Invasion"){
+			invadido = true;
 		}
 	}
 
