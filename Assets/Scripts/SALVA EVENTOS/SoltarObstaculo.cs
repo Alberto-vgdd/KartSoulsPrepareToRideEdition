@@ -6,8 +6,14 @@ public class SoltarObstaculo : MonoBehaviour {
 
 	public GameObject[] obstaculos;
 	public ParticleSystem particulas;
+	public AudioClip sound;
+	AudioSource audioSource;
 
 	void Start(){
+		if (sound != null) {
+			audioSource = GetComponent<AudioSource> ();
+			audioSource.clip = sound;
+		}
 	}
 
 	void OnTriggerEnter(Collider col){
@@ -18,6 +24,10 @@ public class SoltarObstaculo : MonoBehaviour {
 
 			if (particulas != null){
 				particulas.Play();
+			}
+
+			if (sound != null) {
+				audioSource.Play ();
 			}
 		}
 
