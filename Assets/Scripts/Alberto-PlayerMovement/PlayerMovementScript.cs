@@ -29,8 +29,9 @@ public class PlayerMovementScript : MonoBehaviour
 	public float maxLifeValue;
 
 
-	[Header("HUD script")]
+	[Header("Scripts")]
 	public CanvasValues hudScript;
+	public CheckpointSystem checkpointSystem;
 
 
 
