@@ -1,30 +1,69 @@
 fileFormatVersion: 2
-guid: f8f2f670e810a164a8dbc56c5f8694d1
-timeCreated: 1509185334
+guid: da72ea8b0afc99246940fbadc745ce96
+timeCreated: 1509193052
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Camera
-    100004: Cylinder
-    100006: Lamp
-    400000: //RootNode
-    400002: Camera
-    400004: Cylinder
-    400006: Lamp
+    100000: Camera
+    100002: Cone
+    100004: Cube
+    100006: Cube.001
+    100008: Cube.002
+    100010: Cube.003
+    100012: Cylinder
+    100014: //RootNode
+    100016: Lamp
+    400000: Camera
+    400002: Cone
+    400004: Cube
+    400006: Cube.001
+    400008: Cube.002
+    400010: Cube.003
+    400012: Cylinder
+    400014: //RootNode
+    400016: Lamp
     2000000: Camera
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
+    2300000: Cone
+    2300002: Cube
+    2300004: Cube.001
+    2300006: Cube.002
+    2300008: Cube.003
+    2300010: Cylinder
+    3300000: Cone
+    3300002: Cube
+    3300004: Cube.001
+    3300006: Cube.002
+    3300008: Cube.003
+    3300010: Cylinder
+    4300000: Cube.003
+    4300002: Cube.002
+    4300004: Cube.001
+    4300006: Cone
+    4300008: Cube
+    4300010: Cylinder
     10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Beyblade material
+    second: {fileID: 2100000, guid: 4c592fa4b6e1fa749b1514c2a43ce470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crown material
+    second: {fileID: 2100000, guid: 3a928cd76e4f42a4894dd2e8b8c87128, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gwyn image
+    second: {fileID: 2100000, guid: da4757c4e58bdf644aac0b6ef6152099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 95aa7fe9e83a89a48976d9eef36f2391, type: 2}
-
+    second: {fileID: 2100000, guid: e79896078ca9dad4d919e19ec4b41bbb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

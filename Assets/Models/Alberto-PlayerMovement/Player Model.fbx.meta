@@ -1,32 +1,23 @@
 fileFormatVersion: 2
-guid: f8f2f670e810a164a8dbc56c5f8694d1
-timeCreated: 1509185334
+guid: 55f37c9e24468304294dc8fe06b56fd6
+timeCreated: 1509186189
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Camera
-    100004: Cylinder
-    100006: Lamp
     400000: //RootNode
-    400002: Camera
-    400004: Cylinder
-    400006: Lamp
-    2000000: Camera
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
-    10800000: Lamp
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Player
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 95aa7fe9e83a89a48976d9eef36f2391, type: 2}
-
+      name: Player Material
+    second: {fileID: 2100000, guid: a1302d17534e7bf449b0c6dc571d84e3, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -54,7 +45,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -74,7 +65,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
