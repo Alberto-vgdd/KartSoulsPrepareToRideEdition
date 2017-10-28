@@ -1,30 +1,31 @@
 fileFormatVersion: 2
-guid: f8f2f670e810a164a8dbc56c5f8694d1
-timeCreated: 1509185334
+guid: 7997271abff3e1d4bbd224a852a86abd
+timeCreated: 1509194491
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Camera
-    100004: Cylinder
+    100000: Camera
+    100002: //RootNode
+    100004: Cube
     100006: Lamp
-    400000: //RootNode
-    400002: Camera
-    400004: Cylinder
+    400000: Camera
+    400002: //RootNode
+    400004: Cube
     400006: Lamp
     2000000: Camera
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
+    2300000: Cube
+    2300002: //RootNode
+    3300000: Cube
+    3300002: //RootNode
+    4300000: Cube
     10800000: Lamp
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 95aa7fe9e83a89a48976d9eef36f2391, type: 2}
-
+    second: {fileID: 2100000, guid: 9ed27ae511504b84e912bb3253d9622f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
