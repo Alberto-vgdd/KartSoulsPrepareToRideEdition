@@ -13,6 +13,15 @@ public class PlayerMovementScript : MonoBehaviour
 	[Header("Turning Pivot")]
 	public Transform turningPivotTransform;
 
+	[Header("Stamina")]
+	public float maxStaminaValue;
+	public float staminaRecoverySpeed;
+	public float accelerateStaminaCost;
+	public float noStaminaSpeedMultiplier;
+
+	[Header("HUD")]
+	public CanvasValues hudScript;
+
 
 	// Variables to manage movement inputs
 	private float forwardInput;
@@ -25,6 +34,10 @@ public class PlayerMovementScript : MonoBehaviour
 	private float accelerationInfluence;
 
 
+	// Variables to manage stamina
+	private float currentStamina;
+
+
 
 	private Rigidbody playerRigidbody;
 	private Transform playerTransform;
@@ -35,6 +48,9 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		playerRigidbody = GetComponent<Rigidbody>();
 		playerTransform = GetComponent<Transform>();
+
+		currentStamina = maxStaminaValue;
+		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
 	}
 	
 
@@ -47,6 +63,9 @@ public class PlayerMovementScript : MonoBehaviour
 		// Transform the forwardInput to a acceleration value
 		forwardAcceleration = Mathf.SmoothDamp(forwardAcceleration,forwardInput,ref currentFowardVelocity,acceleration);
 
+		// Update Stamina values
+		UpdateStamina();
+
 		// Calculate how the player will turn based on its speed
 		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(Vector3.Scale(playerRigidbody.velocity,turningPivotTransform.forward).magnitude/maxPlayerSpeed);
 		
@@ -54,10 +73,33 @@ public class PlayerMovementScript : MonoBehaviour
 		turningPivotTransform.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
 		
 		// Set the new movement velocity
-		newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
-
-
+		if (currentStamina > 0)
+		{
+			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
+		}
+		else
+		{
+			newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed*noStaminaSpeedMultiplier;
+		}
+		
 		playerRigidbody.velocity = newVelocity + Vector3.up*playerRigidbody.velocity.y;
 		playerRigidbody.AddForce(Physics.gravity,ForceMode.Acceleration);
+	}
+
+
+	void UpdateStamina()
+	{
+		if (Mathf.Abs(forwardAcceleration) < 0.1f)
+		{
+			currentStamina += staminaRecoverySpeed*Time.deltaTime;
+		}
+		else
+		{
+			currentStamina -= accelerateStaminaCost*Time.deltaTime;
+		}
+
+		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
+		//hudScript.SetStaminaBarValue((int)currentStamina);
+		Debug.Log((int)currentStamina + "/" + (int)maxStaminaValue);
 	}
 }
