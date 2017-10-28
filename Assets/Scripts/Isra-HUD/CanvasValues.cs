@@ -16,6 +16,21 @@ public class CanvasValues : MonoBehaviour {
 	public Text m_TitleText;
 	public Animation m_TitleTextAnimation; 
 
+	public Text m_PoisonedText;
+	public Slider m_PoisonSlider;
+	public Image m_PoisonFillImage;
+	Color m_PoisonDefaultColor;
+
+	bool fill;
+
+	public bool m_IsPoisoned;
+
+	void Start(){
+		m_IsPoisoned = false;
+		m_PoisonedText.gameObject.SetActive(false);
+		m_PoisonDefaultColor = m_PoisonFillImage.color;
+	}
+
 	public void SetHumanityCountText(int humanityCount){
 		m_HumanityCountText.text = humanityCount.ToString();
 	}	
@@ -74,6 +89,39 @@ public class CanvasValues : MonoBehaviour {
 		m_TitleText.text = message;
 		m_TitleText.color = color;
 		m_TitleTextAnimation.Play();
+	}
+
+	public void SetPoisonValue(float value){
+		m_PoisonSlider.value = value;
+		if(m_PoisonSlider.value == m_PoisonSlider.maxValue){
+			m_PoisonFillImage.color = m_PoisonSlider.colors.normalColor;
+			m_PoisonedText.gameObject.SetActive(true);
+			m_IsPoisoned = true;
+		}else if(m_PoisonSlider.value == 0){
+			m_PoisonFillImage.color = m_PoisonDefaultColor;
+			m_PoisonedText.gameObject.SetActive(false);
+			m_IsPoisoned = false;
+		}
+	}
+
+	public float GetPoisonValue(){
+		return m_PoisonSlider.value;
+	}
+
+	void Update(){
+		/*
+		if(fill){
+			SetPoisonValue(m_PoisonSlider.value + 0.5f);
+			if(m_PoisonSlider.value == m_PoisonSlider.maxValue){
+				fill = false;
+			}
+		}else{
+			SetPoisonValue(m_PoisonSlider.value - 0.5f);
+
+		}
+
+		*/
+		
 	}
 
 }
