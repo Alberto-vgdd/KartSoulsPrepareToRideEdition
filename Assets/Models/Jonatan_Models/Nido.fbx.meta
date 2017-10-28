@@ -1,21 +1,31 @@
 fileFormatVersion: 2
-guid: 84d68727203fb4c43b4f40430f3b02e4
-timeCreated: 1509196550
+guid: 2af1aaa4c4f1fe6489c362d2fe8a8afd
+timeCreated: 1509196590
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: node_id6 1
     400000: //RootNode
+    400002: node_id6 1
     2300000: //RootNode
+    2300002: node_id6 1
     3300000: //RootNode
-    4300000: Colliseum
+    3300002: node_id6 1
+    4300000: node_id6
+    4300002: node_id6
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 129c5303dfb301444b0ba8a4930a2ce5, type: 2}
+      name: Material_71
+    second: {fileID: 2100000, guid: 141d56a9d9f401a459b83c604f8b47b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_73
+    second: {fileID: 2100000, guid: 63a4a2a97b9edda4c9f27aa0287776c4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
