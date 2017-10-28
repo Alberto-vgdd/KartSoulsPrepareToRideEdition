@@ -11,7 +11,7 @@ public class PlayerMovementScript : MonoBehaviour
 	public float minAccelerationInfluence;
 
 	[Header("Turning Pivot")]
-	public Transform turningPivot;
+	public Transform turningPivotTransform;
 
 
 	// Variables to manage movement inputs
@@ -41,20 +41,20 @@ public class PlayerMovementScript : MonoBehaviour
 	void Update () 
 	{
 		// Read inputs. Invert horizontal inputs in case the player is moving backward
-		forwardInput = ( Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.4f) ?  Mathf.Sign(Input.GetAxisRaw("Vertical")) : 0f;
+		forwardInput = ( Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0f) ?  Mathf.Sign(Input.GetAxisRaw("Vertical")) : 0f;
 		turningInput = ( forwardInput != 0) ? Input.GetAxisRaw("Horizontal") * forwardInput: Input.GetAxisRaw("Horizontal");
 
 		// Transform the forwardInput to a acceleration value
 		forwardAcceleration = Mathf.SmoothDamp(forwardAcceleration,forwardInput,ref currentFowardVelocity,acceleration);
 
 		// Calculate how the player will turn based on its speed
-		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f);
-
-		// Rotate the player.
-		turningPivot.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
-
+		accelerationInfluence = Mathf.Clamp((1-Mathf.Abs(forwardAcceleration)),minAccelerationInfluence,1f)*Mathf.Clamp01(playerRigidbody.velocity.magnitude/maxPlayerSpeed);
+		
+		// Rotate the player 
+		turningPivotTransform.Rotate(playerTransform.up,accelerationInfluence*turningInput*maxPlayerRotationAngle*Time.deltaTime);
+		
 		// Set the new movement velocity
-		newVelocity = turningPivot.forward*forwardAcceleration*maxPlayerSpeed;
+		newVelocity = turningPivotTransform.forward*forwardAcceleration*maxPlayerSpeed;
 
 
 		playerRigidbody.velocity = newVelocity;
