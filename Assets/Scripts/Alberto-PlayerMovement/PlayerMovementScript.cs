@@ -40,6 +40,7 @@ public class PlayerMovementScript : MonoBehaviour
 	private float turningInput;
 
 	// Variables to manage movement
+	private float defaultPlayerSpeed;
 	private Vector3 newVelocity;
 	private float forwardAcceleration;
 	private float currentFowardVelocity;
@@ -82,6 +83,8 @@ public class PlayerMovementScript : MonoBehaviour
 		hudScript.SetMaxLifebarValue((int)maxLifeValue);
 
 		radius = playerCapsuleCollider.radius;
+
+		defaultPlayerSpeed = maxPlayerSpeed;
 	}
 	
 	void Update()
@@ -191,5 +194,15 @@ public class PlayerMovementScript : MonoBehaviour
 	public void ApplyLife(float life)
 	{
 		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
+	}
+
+	public void SetSpeed(float newSpeed)
+	{
+		maxPlayerSpeed = newSpeed;
+	}
+
+	public void SetDefaultSpeed()
+	{
+		maxPlayerSpeed = defaultPlayerSpeed;
 	}
 }
