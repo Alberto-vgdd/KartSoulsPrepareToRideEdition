@@ -77,8 +77,8 @@ public class PlayerMovementScript : MonoBehaviour
 
 		currentStamina = maxStaminaValue;
 		currentLife = maxLifeValue;
-		//hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
-		//hudScript.SetMaxLifeBarValue((int)maxLifeValue);
+		hudScript.SetMaxStaminaBarValue((int)maxStaminaValue);
+		hudScript.SetMaxLifebarValue((int)maxLifeValue);
 
 		radius = playerCapsuleCollider.radius;
 	}
@@ -177,13 +177,13 @@ public class PlayerMovementScript : MonoBehaviour
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
-		//hudScript.SetStaminaBarValue((int)currentStamina);
+		hudScript.SetStaminaBarValue((int)currentStamina);
 
 	}
 
 	void UpdateLife()
 	{
-		//hudScript.SetLifeBarValue((int)currentLife);
+		hudScript.SetLifebarValue((int)currentLife);
 	}
 
 
