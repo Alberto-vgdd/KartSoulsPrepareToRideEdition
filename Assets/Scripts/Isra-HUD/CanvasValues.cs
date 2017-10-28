@@ -10,6 +10,12 @@ public class CanvasValues : MonoBehaviour {
 	public Slider m_StaminaBarSlider;
 	public Text m_SoulCountText;
 
+	public Text m_DialogText;
+	public Animation m_TextDialogAnimation; 
+
+	public Text m_TitleText;
+	public Animation m_TitleTextAnimation; 
+
 	public void SetHumanityCountText(int humanityCount){
 		m_HumanityCountText.text = humanityCount.ToString();
 	}	
@@ -57,6 +63,17 @@ public class CanvasValues : MonoBehaviour {
 
 	public int GetSoulTextCount(){
 		return int.Parse(m_SoulCountText.text);
+	}
+
+	public void ShowDialogText(string message){
+		m_DialogText.text = message;
+		m_TextDialogAnimation.Play();
+	}
+
+	public void ShowTitleText(string message, Color color){
+		m_TitleText.text = message;
+		m_TitleText.color = color;
+		m_TitleTextAnimation.Play();
 	}
 
 }
