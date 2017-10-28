@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 9808a909c17b7f74b89fd59adf415541
+timeCreated: 1509143368
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Escalera
+    100002: Kurwa
+    100004: KurwaMParedDerecho
+    100006: KurwaMuroDerecho
+    100008: KurwaMuroIzquierdo
+    100010: KurwaParedIzquierdo
+    100012: MuroDerecha
+    100014: MuroIzquierda
+    100016: ParedDerecha
+    100018: ParedIzquierda
+    100020: //RootNode
+    100022: Suelo
+    400000: Escalera
+    400002: Kurwa
+    400004: KurwaMParedDerecho
+    400006: KurwaMuroDerecho
+    400008: KurwaMuroIzquierdo
+    400010: KurwaParedIzquierdo
+    400012: MuroDerecha
+    400014: MuroIzquierda
+    400016: ParedDerecha
+    400018: ParedIzquierda
+    400020: //RootNode
+    400022: Suelo
+    2300000: Escalera
+    2300002: Kurwa
+    2300004: KurwaMParedDerecho
+    2300006: KurwaMuroDerecho
+    2300008: KurwaMuroIzquierdo
+    2300010: KurwaParedIzquierdo
+    2300012: MuroDerecha
+    2300014: MuroIzquierda
+    2300016: ParedDerecha
+    2300018: ParedIzquierda
+    2300020: Suelo
+    3300000: Escalera
+    3300002: Kurwa
+    3300004: KurwaMParedDerecho
+    3300006: KurwaMuroDerecho
+    3300008: KurwaMuroIzquierdo
+    3300010: KurwaParedIzquierdo
+    3300012: MuroDerecha
+    3300014: MuroIzquierda
+    3300016: ParedDerecha
+    3300018: ParedIzquierda
+    3300020: Suelo
+    4300000: KurwaParedIzquierdo
+    4300002: KurwaMParedDerecho
+    4300004: KurwaMuroDerecho
+    4300006: KurwaMuroIzquierdo
+    4300008: Kurwa
+    4300010: Escalera
+    4300012: MuroIzquierda
+    4300014: MuroDerecha
+    4300016: ParedDerecha
+    4300018: ParedIzquierda
+    4300020: Suelo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carretera
+    second: {fileID: 2100000, guid: c18f4e469bc1a9a4db1eb284af12b2d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ParedComun
+    second: {fileID: 2100000, guid: f2c0356e4914f984ca8f8bcc52b7ea88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ParedDetalle
+    second: {fileID: 2100000, guid: 4b88025a7b9d12740a6bda6fcc27c832, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
