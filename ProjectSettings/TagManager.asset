@@ -22,7 +22,11 @@ TagManager:
   - Ornstein
   - Fuego
   - Placaje
+<<<<<<< HEAD
   - Anillo
+=======
+  - Pinchos
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
