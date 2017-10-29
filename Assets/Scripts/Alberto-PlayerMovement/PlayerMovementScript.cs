@@ -29,8 +29,9 @@ public class PlayerMovementScript : MonoBehaviour
 	public float maxLifeValue;
 
 
-	[Header("HUD script")]
+	[Header("Scripts")]
 	public CanvasValues hudScript;
+	public CheckpointSystem checkpointSystem;
 
 
 
@@ -40,6 +41,7 @@ public class PlayerMovementScript : MonoBehaviour
 
 	// Variables to manage movement
 	private Vector3 newVelocity;
+	private float defaultPlayerSpeed;
 	private float forwardAcceleration;
 	private float currentFowardVelocity;
 	private float accelerationInfluence;
@@ -81,15 +83,14 @@ public class PlayerMovementScript : MonoBehaviour
 		hudScript.SetMaxLifebarValue((int)maxLifeValue);
 
 		radius = playerCapsuleCollider.radius;
+
+		defaultPlayerSpeed = maxPlayerSpeed;
 	}
 	
 	void Update()
 	{
 		// Update Stamina values
 		UpdateStamina();
-
-		// Update Stamina values
-		UpdateLife();
 	}
 
 	void FixedUpdate () 
@@ -190,5 +191,22 @@ public class PlayerMovementScript : MonoBehaviour
 	public void ApplyLife(float life)
 	{
 		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
+		UpdateLife();
+	}
+
+	public void ApplyStamina(float stamina)
+	{
+		currentStamina = Mathf.Clamp(currentStamina+stamina,0f,maxStaminaValue) ;
+		UpdateStamina();
+	}
+
+	public void SetSpeed(float newSpeed)
+	{
+		maxPlayerSpeed = newSpeed;
+	}
+
+	public void SetDefaultSpeed()
+	{
+		maxPlayerSpeed = defaultPlayerSpeed;
 	}
 }

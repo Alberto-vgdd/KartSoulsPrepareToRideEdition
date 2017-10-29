@@ -13,6 +13,13 @@ TagManager:
   - Veneno
   - Campana1
   - Campana2
+  - Invasion
+  - Zona
+  - Bolardo
+  - Texto1
+  - Texto2
+  - Smough
+  - Ornstein
   layers:
   - Default
   - TransparentFX
