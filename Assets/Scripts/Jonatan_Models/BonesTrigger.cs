@@ -31,8 +31,9 @@ public class BonesTrigger : MonoBehaviour {
 
                 GameObject hueso =  Instantiate(huesos[i].gameObject, huesos[i].transform);
                 hueso.GetComponent<Rigidbody>().useGravity = true;
+                Destroy(hueso, 5f);
             }
-
+            
         }
         
     }
