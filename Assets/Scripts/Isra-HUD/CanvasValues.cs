@@ -20,6 +20,7 @@ public class CanvasValues : MonoBehaviour {
 	public Slider m_PoisonSlider;
 	public Image m_PoisonFillImage;
 	Color m_PoisonDefaultColor;
+	public Image m_PoisonIndicatorImage;
 
 	public Text m_ZoneNameText;
 	public Animation m_ZoneNameAnimation;
@@ -96,6 +97,9 @@ public class CanvasValues : MonoBehaviour {
 
 	public void SetPoisonValue(float value){
 		m_PoisonSlider.value = value;
+		if(m_PoisonSlider.value >= 1){
+			m_PoisonIndicatorImage.gameObject.SetActive(true);
+		}
 		if(m_PoisonSlider.value == m_PoisonSlider.maxValue){
 			m_PoisonFillImage.color = m_PoisonSlider.colors.normalColor;
 			m_PoisonedText.gameObject.SetActive(true);
@@ -103,6 +107,7 @@ public class CanvasValues : MonoBehaviour {
 		}else if(m_PoisonSlider.value == 0){
 			m_PoisonFillImage.color = m_PoisonDefaultColor;
 			m_PoisonedText.gameObject.SetActive(false);
+			m_PoisonIndicatorImage.gameObject.SetActive(false);
 			m_IsPoisoned = false;
 		}
 	}
