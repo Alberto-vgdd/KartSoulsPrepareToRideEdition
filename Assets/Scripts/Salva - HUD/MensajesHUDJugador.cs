@@ -22,6 +22,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 	void OnTriggerExit(Collider col){
 		if (col.tag == "Veneno") {
 			envenenando = false;
+			GetComponent<PlayerMovementScript> ().SetDefaultSpeed();
 		}
 	}
 
@@ -62,12 +63,22 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if(col.tag == "Invasion"){
 			invadido = true;
 		}
+
+		if(col.tag == "Zona"){
+			canvasController.ShowZoneName (col.name);
+		}
+
+		if (col.tag == "Veneno") {
+			GetComponent<PlayerMovementScript> ().SetSpeed (5f);
+		}
+
 	}
 
 	void OnTriggerStay(Collider col){
 		if (col.tag == "Veneno" && canvasController.m_IsPoisoned == false) {
 			canvasController.SetPoisonValue (canvasController.GetPoisonValue () + 0.2f);
 			envenenando = true;
+			GetComponent<PlayerMovementScript> ().SetSpeed (5f);
 		}
 	}
 	// Update is called once per frame
