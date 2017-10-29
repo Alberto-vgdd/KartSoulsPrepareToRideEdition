@@ -25,6 +25,8 @@ public class CanvasValues : MonoBehaviour {
 	public Text m_ZoneNameText;
 	public Animation m_ZoneNameAnimation;
 
+	public Image m_BlackImage;
+
 	bool fill;
 
 	public bool m_IsPoisoned;
@@ -93,6 +95,10 @@ public class CanvasValues : MonoBehaviour {
 		m_TitleText.text = message;
 		m_TitleText.color = color;
 		m_TitleTextAnimation.Play();
+		if(color == Color.red){
+			FadeIn();
+			Invoke("FadeOut", 3f);
+		}
 	}
 
 	public void SetPoisonValue(float value){
@@ -119,6 +125,15 @@ public class CanvasValues : MonoBehaviour {
 	public void ShowZoneName(string name){
 		m_ZoneNameText.text = name;
 		m_ZoneNameAnimation.Play();
+	}
+
+
+	public void FadeOut(){
+		m_BlackImage.GetComponent<Animation>().Play();
+	}
+
+	public void FadeIn(){
+		m_BlackImage.GetComponent<Animation>().Play("Fade In BLACK");
 	}
 
 	void Update(){
