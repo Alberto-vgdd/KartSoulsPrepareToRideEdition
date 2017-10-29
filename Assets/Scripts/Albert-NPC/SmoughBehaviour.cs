@@ -17,7 +17,7 @@ public class SmoughBehaviour : MonoBehaviour {
 	void Update () 
 	{
 		MovementBehaviour();
-		//transform.LookAt(player.transform.position);
+		transform.LookAt(player.transform.position);
 		//SmoughModel.transform.LookAt(player.transform.position);
 	}
 
@@ -34,7 +34,7 @@ public class SmoughBehaviour : MonoBehaviour {
 	void MovementBehaviour()
 	{
 		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position,
-			 Time.deltaTime * 1.5f);
+			 Time.deltaTime * 3f);
 	}
 
 
