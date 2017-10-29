@@ -31,6 +31,19 @@ public class CanvasValues : MonoBehaviour {
 
 	public bool m_IsPoisoned;
 
+
+
+
+	[Header("Player Variables")]
+	public PlayerMovementScript playerMovementScript;
+	public Rigidbody playerRigidbody;
+	public CapsuleCollider playerCollider;
+	public Transform playerTransform;
+
+	[Header("CheckPoint Manager")]
+	public CheckpointSystem checkpointSystem;
+	
+
 	void Start(){
 		m_IsPoisoned = false;
 		m_PoisonedText.gameObject.SetActive(false);
@@ -52,6 +65,15 @@ public class CanvasValues : MonoBehaviour {
 
 	public void SetLifebarValue(int value){
 		m_LifeBarSlider.value = value;
+
+		if (value == 0 && playerMovementScript.enabled)
+		{
+			playerMovementScript.enabled = false;
+			playerCollider.enabled = false;
+			playerRigidbody.isKinematic = true;
+			ShowTitleText ("YOU DIED", Color.red);
+			Invoke("SendPlayerToLastCheckpoint",2f);
+		}
 	}
 
 	public int GetLifebarMaxValue(){
@@ -150,6 +172,22 @@ public class CanvasValues : MonoBehaviour {
 
 		*/
 		
+	}
+
+
+	void SendPlayerToLastCheckpoint()
+	{
+		playerMovementScript.enabled = true;
+		playerMovementScript.ApplyLife(+1000f);
+		playerMovementScript.ApplyStamina(1000f);
+		SetPoisonValue(0f);
+		playerMovementScript.SetDefaultSpeed();
+		
+		playerCollider.enabled = true;
+		playerRigidbody.isKinematic = false;
+		playerTransform.localScale = new Vector3(1,1f,1);
+
+		checkpointSystem.SendPlayerToLastCheckpoint();
 	}
 
 }
