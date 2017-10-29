@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 18159ae77a5e70e468c536c49cc765ee
-timeCreated: 1509274816
+guid: e5b7c4373fed9d94cb47df6652acb196
+timeCreated: 1509276229
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,23 +9,13 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere
+    4300000: root
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Detalle
-    second: {fileID: 2100000, guid: bc98d77f28fd2864583b210d660f1ca6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ExteriorVasija
-    second: {fileID: 2100000, guid: f2f41bf8d8d48514b92cc2c92094f039, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: InteriorVasija
-    second: {fileID: 2100000, guid: 0497090768799144e9daca8640f3f740, type: 2}
+      name: Material_78
+    second: {fileID: 2100000, guid: 44b717cf042740649983843dd29b3ca9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

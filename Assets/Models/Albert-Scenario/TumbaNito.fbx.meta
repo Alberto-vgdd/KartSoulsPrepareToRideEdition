@@ -1,31 +1,38 @@
 fileFormatVersion: 2
-guid: 18159ae77a5e70e468c536c49cc765ee
-timeCreated: 1509274816
+guid: 6372f08877913424cbceb1772bf8d5e7
+timeCreated: 1509276183
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Sphere
+    100000: Cuerpo Tumba
+    100002: Tapa Tumba
+    100004: //RootNode
+    400000: Cuerpo Tumba
+    400002: Tapa Tumba
+    400004: //RootNode
+    2300000: Cuerpo Tumba
+    2300002: Tapa Tumba
+    3300000: Cuerpo Tumba
+    3300002: Tapa Tumba
+    4300000: Tapa Tumba
+    4300002: Cuerpo Tumba
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Detalle
-    second: {fileID: 2100000, guid: bc98d77f28fd2864583b210d660f1ca6, type: 2}
+      name: DetallesTumba
+    second: {fileID: 2100000, guid: 6a7c017898fbe594eafdc998d87c49a3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ExteriorVasija
-    second: {fileID: 2100000, guid: f2f41bf8d8d48514b92cc2c92094f039, type: 2}
+      name: GrisTumba
+    second: {fileID: 2100000, guid: c68bb98d9d679ae44a9df7ec1379773f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: InteriorVasija
-    second: {fileID: 2100000, guid: 0497090768799144e9daca8640f3f740, type: 2}
+      name: NegroBaseTumba
+    second: {fileID: 2100000, guid: b8df0397783d91647bac751e1422714a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
