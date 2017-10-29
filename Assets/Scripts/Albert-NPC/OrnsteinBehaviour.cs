@@ -5,27 +5,30 @@ using UnityEngine;
 public class OrnsteinBehaviour : MonoBehaviour {
 
 	private float coolDownTimer;
-	[Range(10, 100)]
-	public float dashForce = 10f;
+	[Range(30, 100)]
+	public float dashForce = 40f;
 	private GameObject player;
+
+	public GameObject model;
 
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+	transform.LookAt(new Vector3(player.transform.position.x, 0f, 
+									player.transform.position.z));
 		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		LockOn();
 		if (coolDownTimer > 3.0f) // DASH!!
-		{
-			LockOn();
+		{			
 			this.GetComponent<Rigidbody>().AddForce(this.transform.forward * dashForce,
 													  ForceMode.VelocityChange);
 			coolDownTimer = 0.0f;
-
 		}
 		coolDownTimer += Time.deltaTime;
 		MovementBehaviour();
@@ -43,12 +46,14 @@ public class OrnsteinBehaviour : MonoBehaviour {
 	void MovementBehaviour()
 	{
 		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position,
-			 Time.deltaTime * 2f);
+			 Time.deltaTime * 4f);
 	}
 
 	void LockOn()
 	{
-		this.transform.LookAt(player.transform.position);
+		transform.LookAt(new Vector3(player.transform.position.x, 0f, 
+									player.transform.position.z));
+		//model.transform.LookAt(player.transform.position);
 	}
 
 
