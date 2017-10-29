@@ -9,6 +9,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 	private bool contarFallo;
 	private bool envenenando;
 	public bool invadido;
+	public Transform teletransporte;
 
 	public CheckpointSystem checkpointSystem;
 
@@ -112,6 +113,9 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 		if (col.tag == "Ornstein") {
 			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-2f);
+		}
+		if (col.tag == "Fran") {
+			transform.position = teletransporte.position;
 		}
 	
 
