@@ -22,6 +22,7 @@ TagManager:
   - Ornstein
   - Fuego
   - Placaje
+  - Anillo
   layers:
   - Default
   - TransparentFX
