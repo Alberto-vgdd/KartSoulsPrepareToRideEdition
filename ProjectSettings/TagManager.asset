@@ -18,6 +18,8 @@ TagManager:
   - Bolardo
   - Texto1
   - Texto2
+  - Smough
+  - Ornstein
   layers:
   - Default
   - TransparentFX
