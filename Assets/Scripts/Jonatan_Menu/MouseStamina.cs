@@ -15,7 +15,6 @@ public class MouseStamina : MonoBehaviour {
 
         transform.position = Input.mousePosition;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 		
 	}
 	
@@ -28,15 +27,20 @@ public class MouseStamina : MonoBehaviour {
 
             mensaje.SetActive(false);
         }
-        else { Recargar();
+        else {
             mensaje.SetActive(true);
+            if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0)
+            {
+
+                Recargar();
+            }
         }
 		
 	}
 
     void Move() {
 
-        if (!recharge) { transform.Translate(Input.GetAxis("Mouse X") * sensibility, Input.GetAxis("Mouse Y")* sensibility,0); }
+        { transform.position = Input.mousePosition; }
         if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0) {
 
             Recargar();
@@ -54,8 +58,7 @@ public class MouseStamina : MonoBehaviour {
         }
         else {
 
-            float calculo = (Mathf.Abs(Input.GetAxis("Mouse X") + Mathf.Abs(Input.GetAxis("Mouse Y"))))*5;
-            print(calculo);
+            float calculo = (Mathf.Abs(Input.GetAxis("Mouse X") + Mathf.Abs(Input.GetAxis("Mouse Y"))))*7.5f;
             stamina = stamina - calculo ;
 
         }
@@ -79,4 +82,4 @@ public class MouseStamina : MonoBehaviour {
         }
     }
 
-}
+    }
