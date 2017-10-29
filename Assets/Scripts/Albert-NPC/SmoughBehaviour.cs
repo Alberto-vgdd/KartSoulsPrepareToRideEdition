@@ -6,6 +6,7 @@ public class SmoughBehaviour : MonoBehaviour {
 
 	private GameObject player;
 	public GameObject SmoughModel;
+	private Vector3 smoughVelocity;
 	
 
 	// Use this for initialization
@@ -16,8 +17,9 @@ public class SmoughBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		MovementBehaviour();
 		transform.LookAt(player.transform.position);
+		MovementBehaviour();
+		
 		//SmoughModel.transform.LookAt(player.transform.position);
 	}
 
@@ -33,8 +35,7 @@ public class SmoughBehaviour : MonoBehaviour {
 
 	void MovementBehaviour()
 	{
-		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position,
-			 Time.deltaTime * 3f);
+		transform.Translate(Vector3.forward*5f*Time.deltaTime,Space.Self);
 	}
 
 

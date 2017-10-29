@@ -151,6 +151,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1981205919372582, guid: 9436df53877453c44910a7945864b377, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9436df53877453c44910a7945864b377, type: 2}
   m_IsPrefabParent: 0
@@ -192,6 +196,10 @@ Prefab:
     - target: {fileID: 4104310158021278, guid: bb46b4eb6f54dd343986ffdd27b32e2a, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143513232593582, guid: bb46b4eb6f54dd343986ffdd27b32e2a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb46b4eb6f54dd343986ffdd27b32e2a, type: 2}
@@ -382,7 +390,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1711327594978084, guid: 538a04e7869e9de48add30f7f0ec0171, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 538a04e7869e9de48add30f7f0ec0171, type: 2}
@@ -399,6 +407,8 @@ GameObject:
   - component: {fileID: 945361781}
   - component: {fileID: 945361780}
   - component: {fileID: 945361784}
+  - component: {fileID: 945361786}
+  - component: {fileID: 945361785}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Player
@@ -487,6 +497,100 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!82 &945361785
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945361779}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c46e00a135421e459ed2b14f29cbe29, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &945361786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945361779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035734b2d94e9fd42b885c3cd3425b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carEngine: {fileID: 8300000, guid: 9c46e00a135421e459ed2b14f29cbe29, type: 3}
+  carEngineModifier: 0
+  playerEmitter: {fileID: 945361785}
 --- !u!1 &1427022187
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +713,10 @@ Prefab:
     - target: {fileID: 4010766845568476, guid: a00634ffe0a7ab14b8fc6bcf1275a0fb, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844958342776868, guid: a00634ffe0a7ab14b8fc6bcf1275a0fb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a00634ffe0a7ab14b8fc6bcf1275a0fb, type: 2}
