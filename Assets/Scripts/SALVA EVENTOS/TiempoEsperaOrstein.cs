@@ -6,11 +6,15 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 
 	bool contarTiempo = false;
 	public float tiempo = 0;
-	public GameObject puertaAbrir;
+	public GameObject puertaAbrir, Orstein, Smough;
+	private Transform posicionOrstein, posicionSmough;
 
 	// Use this for initialization
 	void Start () {
-		
+		posicionOrstein = Orstein.transform;
+		posicionSmough = Smough.transform;
+		Smough.SetActive (false);
+		Orstein.SetActive (false);
 	}
 
 	void OnTriggerStay(Collider col){
@@ -24,6 +28,17 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 			contarTiempo = false;
 			tiempo = 0;
 			puertaAbrir.SetActive (true);
+			Orstein.transform.position = posicionOrstein.position;
+			Smough.transform.position = posicionSmough.position;
+			Orstein.SetActive (true);
+			Smough.SetActive (true);
+		}
+	}
+
+	void OnTriggerExit(Collider col){
+		if (col.tag == "Player") {
+			Orstein.SetActive (false);
+			Smough.SetActive (false);
 		}
 
 	}

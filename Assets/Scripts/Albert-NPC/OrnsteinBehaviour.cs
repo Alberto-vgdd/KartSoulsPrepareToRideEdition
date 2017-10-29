@@ -6,7 +6,7 @@ public class OrnsteinBehaviour : MonoBehaviour {
 
 	private float coolDownTimer;
 	[Range(30, 100)]
-	public float dashForce = 40f;
+	public float dashForce = 30f;
 	private GameObject player;
 
 	public GameObject model;
@@ -15,8 +15,8 @@ public class OrnsteinBehaviour : MonoBehaviour {
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-	transform.LookAt(new Vector3(player.transform.position.x, 0f, 
-									player.transform.position.z));
+	//transform.LookAt(new Vector3(player.transform.position.x, 0f, 
+	//								player.transform.position.z));
 		
 	}
 	
@@ -51,9 +51,9 @@ public class OrnsteinBehaviour : MonoBehaviour {
 
 	void LockOn()
 	{
-		transform.LookAt(new Vector3(player.transform.position.x, 0f, 
-									player.transform.position.z));
-		//model.transform.LookAt(player.transform.position);
+		//transform.LookAt(new Vector3(player.transform.position.x, 0f, 
+		//							player.transform.position.z));
+		transform.LookAt(player.transform.position);
 	}
 
 
