@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: c928e6ab85b924d4abcb484ec2f986a1
+guid: 18159ae77a5e70e468c536c49cc765ee
+timeCreated: 1509274816
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,23 +10,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Sphere
-    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Detalle
-    second: {fileID: 2100000, guid: d0d0f3b1e3ded6d46abf9c0d29cf4e18, type: 2}
+    second: {fileID: 2100000, guid: bc98d77f28fd2864583b210d660f1ca6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ExteriorVasija
-    second: {fileID: 2100000, guid: 9a81aaac7e9e5ed4d8f6fc2db43c61e7, type: 2}
+    second: {fileID: 2100000, guid: f2f41bf8d8d48514b92cc2c92094f039, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: InteriorVasija
-    second: {fileID: 2100000, guid: ac29de8699ed26645bec8aa175ebbb64, type: 2}
+    second: {fileID: 2100000, guid: 0497090768799144e9daca8640f3f740, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -96,7 +97,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
