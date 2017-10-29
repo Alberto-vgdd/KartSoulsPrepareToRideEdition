@@ -7,6 +7,17 @@ TagManager:
   - Muerte
   - Ground
   - Checkpoint
+  - Estus
+  - RecuperarAlmas
+  - Invocacion
+  - Veneno
+  - Campana1
+  - Campana2
+  - Invasion
+  - Zona
+  - Bolardo
+  - Texto1
+  - Texto2
   layers:
   - Default
   - TransparentFX
@@ -16,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Scenario
   - 
   - 
   - 

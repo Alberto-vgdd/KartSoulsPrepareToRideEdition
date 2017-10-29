@@ -20,6 +20,12 @@ public class CanvasValues : MonoBehaviour {
 	public Slider m_PoisonSlider;
 	public Image m_PoisonFillImage;
 	Color m_PoisonDefaultColor;
+	public Image m_PoisonIndicatorImage;
+
+	public Text m_ZoneNameText;
+	public Animation m_ZoneNameAnimation;
+
+	public Image m_BlackImage;
 
 	bool fill;
 
@@ -89,10 +95,17 @@ public class CanvasValues : MonoBehaviour {
 		m_TitleText.text = message;
 		m_TitleText.color = color;
 		m_TitleTextAnimation.Play();
+		if(color == Color.red){
+			FadeIn();
+			Invoke("FadeOut", 3f);
+		}
 	}
 
 	public void SetPoisonValue(float value){
 		m_PoisonSlider.value = value;
+		if(m_PoisonSlider.value >= 1){
+			m_PoisonIndicatorImage.gameObject.SetActive(true);
+		}
 		if(m_PoisonSlider.value == m_PoisonSlider.maxValue){
 			m_PoisonFillImage.color = m_PoisonSlider.colors.normalColor;
 			m_PoisonedText.gameObject.SetActive(true);
@@ -100,12 +113,27 @@ public class CanvasValues : MonoBehaviour {
 		}else if(m_PoisonSlider.value == 0){
 			m_PoisonFillImage.color = m_PoisonDefaultColor;
 			m_PoisonedText.gameObject.SetActive(false);
+			m_PoisonIndicatorImage.gameObject.SetActive(false);
 			m_IsPoisoned = false;
 		}
 	}
 
 	public float GetPoisonValue(){
 		return m_PoisonSlider.value;
+	}
+
+	public void ShowZoneName(string name){
+		m_ZoneNameText.text = name;
+		m_ZoneNameAnimation.Play();
+	}
+
+
+	public void FadeOut(){
+		m_BlackImage.GetComponent<Animation>().Play();
+	}
+
+	public void FadeIn(){
+		m_BlackImage.GetComponent<Animation>().Play("Fade In BLACK");
 	}
 
 	void Update(){

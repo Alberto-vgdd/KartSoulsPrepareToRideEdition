@@ -19,7 +19,9 @@ public class SoltarObstaculo : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Player") {
 			foreach (GameObject objeto in obstaculos) {
+				if(objeto == null) return;
 				objeto.GetComponent<Rigidbody> ().isKinematic = false;
+				Destroy(objeto,10f);
 			}
 
 			if (particulas != null){
