@@ -9,8 +9,8 @@ public class ComprobarAnillo : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (anillo == null) {
-			Destroy (this);
+		if (!anillo.activeSelf) {
+			Destroy (this.gameObject);
 		}
 	}
 }
