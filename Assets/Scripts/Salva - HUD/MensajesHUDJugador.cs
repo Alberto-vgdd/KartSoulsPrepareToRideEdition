@@ -54,9 +54,11 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (col.tag == "Checkpoint") {
+			Application.targetFrameRate = 0;
 			canvasController.ShowTitleText ("BONFIRE LIT", Color.yellow);
 			checkpointSystem.SetLastCheckpoint(col.transform);
 			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(1000f);
+			gameObject.GetComponent<PlayerMovementScript>().ApplyStamina(1000f);
 			col.enabled = false;
 		}
 
@@ -74,12 +76,12 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (col.tag == "Texto1") {
-			canvasController.ShowDialogText ("You better run, you better take cover.");
+			canvasController.ShowDialogText ("Run.");
 			contarFallo = false;
 		}
 
 		if (col.tag == "Texto2") {
-			canvasController.ShowDialogText ("Amazing chest ahead");
+			canvasController.ShowDialogText ("Amazing Texture ahead");
 			contarFallo = false;
 		}
 
@@ -132,6 +134,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 	void SendPlayerToLastCheckpoint()
 	{
 		gameObject.GetComponent<PlayerMovementScript>().ApplyLife(+1000f);
+		gameObject.GetComponent<PlayerMovementScript>().ApplyStamina(1000f);
 		gameObject.GetComponent<PlayerMovementScript>().enabled = true;
 		gameObject.GetComponent<CapsuleCollider>().enabled = true;
 		gameObject.GetComponent<Rigidbody>().isKinematic = false;
