@@ -193,6 +193,12 @@ public class PlayerMovementScript : MonoBehaviour
 		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
 		UpdateLife();
 	}
+	
+	public bool isPlayerDead()
+	{
+		return currentLife <= 0;
+	}
+
 
 	public void ApplyStamina(float stamina)
 	{

@@ -10,8 +10,13 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 	private Transform posicionOrstein, posicionSmough;
 	public CanvasValues canvas;
 
+	public GameObject player;
+	private PlayerMovementScript playerMovementScript;
+	
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		playerMovementScript = player.GetComponent<PlayerMovementScript>();
 		posicionOrstein = Orstein.transform;
 		posicionSmough = Smough.transform;
 		Smough.SetActive (false);
@@ -37,15 +42,29 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider col){
-		if (col.tag == "Player") {
+		if (col.tag == "Player") 
+		{
 			Orstein.SetActive (false);
 			Smough.SetActive (false);
+			Orstein.GetComponent<OrnsteinBehaviour>().setOrPos();
+			Smough.GetComponent<SmoughBehaviour>().setOrPos();
+			contarTiempo = false;
+			tiempo = 20;
+			canvas.SetHumanityCountText (20);
 		}
 
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if (playerMovementScript.isPlayerDead())
+		{
+			contarTiempo = false;
+			tiempo = 20;
+			canvas.SetHumanityCountText (20);
+		}
+
 		if (contarTiempo) {
 			tiempo -= Time.deltaTime;
 			canvas.SetHumanityCountText ((int) tiempo);

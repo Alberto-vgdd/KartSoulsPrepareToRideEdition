@@ -7,31 +7,43 @@ public class OrnsteinBehaviour : MonoBehaviour {
 	private float coolDownTimer;
 	[Range(30, 100)]
 	public float dashForce = 30f;
-	private GameObject player;
+	public GameObject player;
+	private PlayerMovementScript playerMovementScript;
+		private Vector3 orpos;
 
 	public GameObject model;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
-	//transform.LookAt(new Vector3(player.transform.position.x, 0f, 
-	//								player.transform.position.z));
-		
+
+		playerMovementScript = player.GetComponent<PlayerMovementScript>();
+		orpos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		LockOn();
-		if (coolDownTimer > 3.0f) // DASH!!
-		{			
-			this.GetComponent<Rigidbody>().AddForce(this.transform.forward * dashForce,
-													  ForceMode.VelocityChange);
-			coolDownTimer = 0.0f;
+		
+
+
+		if (playerMovementScript.isPlayerDead())
+		{
+				 setOrPos();
+			gameObject.SetActive(false);
 		}
-		coolDownTimer += Time.deltaTime;
-		MovementBehaviour();
+		else
+		{
+			LockOn();
+			if (coolDownTimer > 3.0f) // DASH!!
+			{			
+				this.GetComponent<Rigidbody>().AddForce(this.transform.forward * dashForce,
+														ForceMode.VelocityChange);
+				coolDownTimer = 0.0f;
+			}
+			coolDownTimer += Time.deltaTime;
+			MovementBehaviour();
+		}
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -54,6 +66,11 @@ public class OrnsteinBehaviour : MonoBehaviour {
 		//transform.LookAt(new Vector3(player.transform.position.x, 0f, 
 		//							player.transform.position.z));
 		transform.LookAt(player.transform.position);
+	}
+
+	public void setOrPos()
+	{
+		transform.position = orpos;
 	}
 
 

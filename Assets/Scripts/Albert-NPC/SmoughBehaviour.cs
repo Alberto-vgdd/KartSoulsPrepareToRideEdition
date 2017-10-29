@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class SmoughBehaviour : MonoBehaviour {
 
-	private GameObject player;
+	public GameObject player;
+	private PlayerMovementScript playerMovementScript;
 	public GameObject SmoughModel;
 	private Vector3 smoughVelocity;
+	private Vector3 orpos;
 	
 
 	// Use this for initialization
-	void Start () {
-			player = GameObject.FindGameObjectWithTag("Player");
+	void Awake () {
+			playerMovementScript = player.GetComponent<PlayerMovementScript>();
+			orpos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.LookAt(player.transform.position);
-		MovementBehaviour();
+		if (playerMovementScript.isPlayerDead())
+		{
+			 setOrPos();
+			gameObject.SetActive(false);
+		}
+		else
+		{
+			transform.LookAt(player.transform.position);
+			MovementBehaviour();
+		}
+
 		
 		//SmoughModel.transform.LookAt(player.transform.position);
 	}
@@ -38,6 +50,10 @@ public class SmoughBehaviour : MonoBehaviour {
 		transform.Translate(Vector3.forward*5f*Time.deltaTime,Space.Self);
 	}
 
+	public void setOrPos()
+	{
+		transform.position = orpos;
+	}
 
 
 
