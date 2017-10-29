@@ -20,6 +20,8 @@ TagManager:
   - Texto2
   - Smough
   - Ornstein
+  - Fuego
+  - Placaje
   layers:
   - Default
   - TransparentFX
