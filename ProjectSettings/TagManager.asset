@@ -16,6 +16,8 @@ TagManager:
   - Invasion
   - Zona
   - Bolardo
+  - Texto1
+  - Texto2
   layers:
   - Default
   - TransparentFX

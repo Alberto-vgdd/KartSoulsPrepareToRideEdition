@@ -56,6 +56,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if (col.tag == "Checkpoint") {
 			canvasController.ShowTitleText ("BONFIRE LIT", Color.yellow);
 			checkpointSystem.SetLastCheckpoint(col.transform);
+			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(1000f);
 			col.enabled = false;
 		}
 
@@ -71,6 +72,17 @@ public class MensajesHUDJugador : MonoBehaviour {
 			canvasController.ShowDialogText ("Summoning x_MinecraftSexMaster_x phantom");
 			contarFallo = true;
 		}
+
+		if (col.tag == "Texto1") {
+			canvasController.ShowDialogText ("You better run, you better take cover.");
+			contarFallo = false;
+		}
+
+		if (col.tag == "Texto2") {
+			canvasController.ShowDialogText ("Amazing chest ahead");
+			contarFallo = false;
+		}
+
 		if(col.tag == "Invasion"){
 			invadido = true;
 		}
@@ -110,6 +122,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (canvasController.m_IsPoisoned == true) {
+			GetComponent<PlayerMovementScript> ().ApplyLife(-5f*Time.deltaTime);
 			canvasController.SetPoisonValue (canvasController.GetPoisonValue () - 0.05f);
 		}
 	}
