@@ -15,7 +15,7 @@ public class CarSoundBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerEmitter.clip = carEngine;
-		playerEmitter.volume = 1f;
+		playerEmitter.volume = 2f;
 		playerEmitter.loop = true;
 		movScript = GetComponent<PlayerMovementScript>();
 	}
