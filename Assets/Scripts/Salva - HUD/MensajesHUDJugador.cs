@@ -54,8 +54,11 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (col.tag == "Checkpoint") {
+			Application.targetFrameRate = 0;
 			canvasController.ShowTitleText ("BONFIRE LIT", Color.yellow);
 			checkpointSystem.SetLastCheckpoint(col.transform);
+			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(1000f);
+			gameObject.GetComponent<PlayerMovementScript>().ApplyStamina(1000f);
 			col.enabled = false;
 		}
 
@@ -71,6 +74,17 @@ public class MensajesHUDJugador : MonoBehaviour {
 			canvasController.ShowDialogText ("Summoning x_MinecraftSexMaster_x phantom");
 			contarFallo = true;
 		}
+
+		if (col.tag == "Texto1") {
+			canvasController.ShowDialogText ("Run.");
+			contarFallo = false;
+		}
+
+		if (col.tag == "Texto2") {
+			canvasController.ShowDialogText ("Amazing Texture ahead");
+			contarFallo = false;
+		}
+
 		if(col.tag == "Invasion"){
 			invadido = true;
 		}
@@ -110,6 +124,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if (canvasController.m_IsPoisoned == true) {
+			GetComponent<PlayerMovementScript> ().ApplyLife(-5f*Time.deltaTime);
 			canvasController.SetPoisonValue (canvasController.GetPoisonValue () - 0.05f);
 		}
 	}
@@ -119,6 +134,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 	void SendPlayerToLastCheckpoint()
 	{
 		gameObject.GetComponent<PlayerMovementScript>().ApplyLife(+1000f);
+		gameObject.GetComponent<PlayerMovementScript>().ApplyStamina(1000f);
 		gameObject.GetComponent<PlayerMovementScript>().enabled = true;
 		gameObject.GetComponent<CapsuleCollider>().enabled = true;
 		gameObject.GetComponent<Rigidbody>().isKinematic = false;

@@ -194,6 +194,12 @@ public class PlayerMovementScript : MonoBehaviour
 		UpdateLife();
 	}
 
+	public void ApplyStamina(float stamina)
+	{
+		currentStamina = Mathf.Clamp(currentStamina+stamina,0f,maxStaminaValue) ;
+		UpdateStamina();
+	}
+
 	public void SetSpeed(float newSpeed)
 	{
 		maxPlayerSpeed = newSpeed;
