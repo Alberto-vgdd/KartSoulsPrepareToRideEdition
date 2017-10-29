@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Albert-MainMenu.unity
+    guid: 97d3ec88e2f47d540a6c87a893d5cdc5
+  - enabled: 1
+    path: Assets/Scenes/Salva-EscenarioPrincipal.unity
+    guid: ae4078db385ecd54eb9041031e13f243

@@ -15,6 +15,7 @@ TagManager:
   - Campana2
   - Invasion
   - Zona
+  - Bolardo
   layers:
   - Default
   - TransparentFX
