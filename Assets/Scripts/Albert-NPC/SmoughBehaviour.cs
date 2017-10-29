@@ -5,19 +5,20 @@ using UnityEngine;
 public class SmoughBehaviour : MonoBehaviour {
 
 	private GameObject player;
-
+	public GameObject SmoughModel;
 	
 
 	// Use this for initialization
 	void Start () {
-		
+			player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		MovementBehaviour();
-		
+		//transform.LookAt(player.transform.position);
+		//SmoughModel.transform.LookAt(player.transform.position);
 	}
 
 	void OnCollisionEnter(Collision other)

@@ -682,3 +682,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cde649d7f6433e4f8dea5e3082a82a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SmoughModel: {fileID: 1981205919372582}
