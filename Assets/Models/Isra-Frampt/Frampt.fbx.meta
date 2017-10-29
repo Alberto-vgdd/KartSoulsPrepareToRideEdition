@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e91cca1d1196fc748b237224001bfe88
-timeCreated: 1509279266
+guid: eea190521167e604cb8fe93f09efd36b
+timeCreated: 1509277669
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -27,7 +27,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 1890adbdd5588564dabfae81918a934c, type: 2}
+    second: {fileID: 2100000, guid: e94aeabb10e7dd84daa7ab4a14176771, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -82,7 +82,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
