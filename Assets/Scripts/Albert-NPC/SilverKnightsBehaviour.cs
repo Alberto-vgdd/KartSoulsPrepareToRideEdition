@@ -47,7 +47,7 @@ public class SilverKnightsBehaviour : MonoBehaviour {
 		projectile.SetActive(true);
 		projectile.GetComponent<Rigidbody>().AddForce(-projectile.transform.forward * rainingForce,
 													  ForceMode.VelocityChange);
-		Destroy(projectile, 7f);
+		Destroy(projectile, 3f);
 	}
 
 	

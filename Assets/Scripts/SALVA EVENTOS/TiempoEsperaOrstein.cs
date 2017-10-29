@@ -5,9 +5,10 @@ using UnityEngine;
 public class TiempoEsperaOrstein : MonoBehaviour {
 
 	bool contarTiempo = false;
-	public float tiempo = 0;
+	public float tiempo = 20;
 	public GameObject puertaAbrir, Orstein, Smough;
 	private Transform posicionOrstein, posicionSmough;
+	public CanvasValues canvas;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,7 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Player") {
 			contarTiempo = false;
-			tiempo = 0;
+			tiempo = 20;
 			puertaAbrir.SetActive (true);
 			Orstein.transform.position = posicionOrstein.position;
 			Smough.transform.position = posicionSmough.position;
@@ -46,10 +47,12 @@ public class TiempoEsperaOrstein : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (contarTiempo) {
-			tiempo += Time.deltaTime;
+			tiempo -= Time.deltaTime;
+			canvas.SetHumanityCountText ((int) tiempo);
 		}
 
-		if (tiempo >= 20) {
+		if (tiempo <= 0) {
+			canvas.SetHumanityCountText (0);
 			puertaAbrir.SetActive (false);
 		}
 	}

@@ -86,6 +86,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		}
 
 		if(col.tag == "Invasion"){
+			canvasController.ShowDialogText ("Invaded by Dark Spirit Giant_Dad");
 			invadido = true;
 		}
 
@@ -95,6 +96,13 @@ public class MensajesHUDJugador : MonoBehaviour {
 
 		if (col.tag == "Veneno") {
 			GetComponent<PlayerMovementScript> ().SetSpeed (5f);
+		}
+
+		if (col.tag == "Smough") {
+			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-1000f);
+		}
+		if (col.tag == "Ornstein") {
+			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-2f);
 		}
 
 	}
