@@ -21,7 +21,7 @@ public class MainMenuBehaviour : MonoBehaviour {
 
 	public void StartGame()
 	{
-		//SceneManager.LoadScene("");
+		SceneManager.LoadScene("Salva-EscenarioPrincipal");
 	}
 
 	public void QuitGame()
