@@ -10,12 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: root
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_70
-    second: {fileID: 2100000, guid: 0cb50a3bc2c4fa34a82d670b109f05b6, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -65,7 +60,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

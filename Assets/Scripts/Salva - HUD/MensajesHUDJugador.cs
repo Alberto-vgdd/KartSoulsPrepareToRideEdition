@@ -78,6 +78,11 @@ public class MensajesHUDJugador : MonoBehaviour {
 			contarFallo = true;
 		}
 
+		if (col.tag == "Anillo") {
+			canvasController.ShowDialogText ("Artorias ring obtained");
+			contarFallo = false;
+		}
+
 		if (col.tag == "Texto1") {
 			canvasController.ShowDialogText ("Run.");
 			contarFallo = false;
