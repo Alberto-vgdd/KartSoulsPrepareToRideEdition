@@ -81,7 +81,7 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if (col.tag == "Anillo") {
 			canvasController.ShowDialogText ("Artorias ring obtained");
 			contarFallo = false;
-			Destroy(col.gameObject);
+			col.gameObject.SetActive (false);
 		}
 
 		if (col.tag == "Texto1") {
@@ -113,12 +113,6 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if (col.tag == "Ornstein") {
 			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-2f);
 		}
-
-		if(col.tag == "Pinchos"){
-			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-1000f);
-			
-		}
-
 	
 
 	}
