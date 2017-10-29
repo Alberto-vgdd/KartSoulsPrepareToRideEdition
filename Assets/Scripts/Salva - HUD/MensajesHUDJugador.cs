@@ -36,6 +36,17 @@ public class MensajesHUDJugador : MonoBehaviour {
 			canvasController.ShowTitleText ("YOU DIED", Color.red);
 		}
 
+		if (col.tag == "Bolardo") {
+			gameObject.GetComponent<PlayerMovementScript>().ApplyLife(-1000f);
+			gameObject.GetComponent<PlayerMovementScript>().enabled = false;
+			gameObject.GetComponent<CapsuleCollider>().enabled = false;
+			gameObject.GetComponent<Rigidbody>().isKinematic = true;
+			transform.localScale = new Vector3(1,0.01f,1);
+			canvasController.ShowTitleText ("YOU DIED", Color.red);
+			Destroy(col.gameObject,2f);
+			Invoke("SendPlayerToLastCheckpoint",2f);
+		}
+
 		if (col.tag == "RecuperarAlmas") {
 			canvasController.ShowTitleText ("SOULS RETRIEVED", Color.green);
 			canvasController.SetSoulCountText (canvasController.GetSoulTextCount() + 200);
@@ -101,5 +112,17 @@ public class MensajesHUDJugador : MonoBehaviour {
 		if (canvasController.m_IsPoisoned == true) {
 			canvasController.SetPoisonValue (canvasController.GetPoisonValue () - 0.05f);
 		}
+	}
+
+
+
+	void SendPlayerToLastCheckpoint()
+	{
+		gameObject.GetComponent<PlayerMovementScript>().ApplyLife(+1000f);
+		gameObject.GetComponent<PlayerMovementScript>().enabled = true;
+		gameObject.GetComponent<CapsuleCollider>().enabled = true;
+		gameObject.GetComponent<Rigidbody>().isKinematic = false;
+		transform.localScale = new Vector3(1,1f,1);
+		checkpointSystem.SendPlayerToLastCheckpoint();
 	}
 }

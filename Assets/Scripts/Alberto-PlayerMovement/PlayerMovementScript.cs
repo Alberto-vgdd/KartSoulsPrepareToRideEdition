@@ -40,8 +40,8 @@ public class PlayerMovementScript : MonoBehaviour
 	private float turningInput;
 
 	// Variables to manage movement
-	private float defaultPlayerSpeed;
 	private Vector3 newVelocity;
+	private float defaultPlayerSpeed;
 	private float forwardAcceleration;
 	private float currentFowardVelocity;
 	private float accelerationInfluence;
@@ -91,9 +91,6 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		// Update Stamina values
 		UpdateStamina();
-
-		// Update Stamina values
-		UpdateLife();
 	}
 
 	void FixedUpdate () 
@@ -194,6 +191,7 @@ public class PlayerMovementScript : MonoBehaviour
 	public void ApplyLife(float life)
 	{
 		currentLife = Mathf.Clamp(currentLife+life,0f,maxLifeValue) ;
+		UpdateLife();
 	}
 
 	public void SetSpeed(float newSpeed)
