@@ -209,4 +209,11 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		maxPlayerSpeed = defaultPlayerSpeed;
 	}
+
+	public float GetNormalizedAcceleration()
+	{
+		return Mathf.Abs(forwardAcceleration);
+	}
+
+
 }
