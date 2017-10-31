@@ -170,11 +170,11 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		if (Mathf.Abs(forwardAcceleration) < 0.1f)
 		{
-			currentStamina += staminaRecoverySpeed*Time.fixedDeltaTime;
+			currentStamina += staminaRecoverySpeed*Time.deltaTime;
 		}
 		else
 		{
-			currentStamina -= accelerateStaminaCost*Time.fixedDeltaTime;
+			currentStamina -= accelerateStaminaCost*Time.deltaTime;
 		}
 
 		currentStamina = Mathf.Clamp(currentStamina,0f,maxStaminaValue);
