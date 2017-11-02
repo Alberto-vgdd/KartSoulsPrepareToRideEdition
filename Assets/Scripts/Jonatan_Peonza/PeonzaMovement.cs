@@ -24,15 +24,19 @@ public class PeonzaMovement : MonoBehaviour {
 
 
         CalculateRebote();
-        Move();
+        
 		
 	}
+      void FixedUpdate()
+    {
+        Move();
+    }
 
 
     void Move() {
 
         player.transform.Rotate(0,peonzaRotationSpeed,0);
-        transform.position = Vector3.MoveTowards(transform.position, pilares[pos].position, step);
+        transform.position = Vector3.MoveTowards(transform.position, pilares[pos].position, step * Time.fixedDeltaTime);
 
 
     }
