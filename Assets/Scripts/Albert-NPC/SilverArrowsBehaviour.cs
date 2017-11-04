@@ -10,7 +10,7 @@ public class SilverArrowsBehaviour : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		 {
-			 other.gameObject.GetComponent<Rigidbody>().AddForce(-this.transform.forward*500f,
+			 other.gameObject.GetComponent<Rigidbody>().AddForce(-this.transform.forward*100f,
 			 													 ForceMode.VelocityChange);
 			 Destroy(this);
 		 }

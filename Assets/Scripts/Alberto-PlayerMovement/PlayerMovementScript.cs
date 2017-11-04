@@ -91,6 +91,15 @@ public class PlayerMovementScript : MonoBehaviour
 	{
 		// Update Stamina values
 		UpdateStamina();
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+		if (Input.GetButtonDown("Die"))
+		{
+			ApplyLife(-99999f);
+		}
 	}
 
 	void FixedUpdate () 

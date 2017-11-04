@@ -27,7 +27,7 @@ public class SilverKnightsBehaviour : MonoBehaviour {
 		//this.transform.LookAt(player.transform.position);
 		coolDownTime += Time.deltaTime;
 
-		if (coolDownTime > 3.0f)
+		if (coolDownTime > 3.0f && (player.transform.position-myself.transform.position).magnitude > 5f)
 		{
 			UnderMyUmbrellaEhEhEh();
 			coolDownTime = 0.0f;
