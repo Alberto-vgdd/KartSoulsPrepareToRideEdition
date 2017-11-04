@@ -10,79 +10,75 @@ public class MouseStamina : MonoBehaviour {
     public float sensibility;
     public Slider slider;
     public GameObject mensaje;
-    private float stamina = 200;
+    private float stamina = 100;
     bool recharge = false;
+
+
+    Vector3 currentVelocity;
     
 	// Use this for initialization
 	void Start () {
 
         transform.position = Input.mousePosition;
-        //Cursor.visible = false;
+        Cursor.visible = false;
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         
-        slider.value = stamina;
-        Move();
-        if (!recharge) { EstaminaCalculo();
+        if (!recharge)
+        {
+            Move();
 
-            mensaje.SetActive(false);
-        }
-        else {
-            mensaje.SetActive(true);
-            if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0)
+            if (stamina <= 0)
             {
-
-                Recargar();
+                recharge = true;
+                mensaje.SetActive(true);
+                BotonesState();
             }
+            
+        }
+        else 
+        {
+            Recargar();
         }
 		
+
+        slider.value = stamina;
 	}
 
     void Move() {
 
-        transform.position = Input.mousePosition + new Vector3(0,-25,0); 
-        if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0) {
+        transform.position = Vector3.SmoothDamp(transform.position,Input.mousePosition + new Vector3(0,-25,0), ref currentVelocity,0.05f ) ;
+
+        if (Input.GetAxis("Mouse X") == 0 && Input.GetAxis("Mouse Y") == 0)
+        {
 
             Recargar();
         }
-
-    }
-
-    void EstaminaCalculo()
-    {
-        if (stamina <= 0)
+        else
         {
-
-            recharge = true;
-            BotonesState();
-
+            float calculo = Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"))*5f;
+            stamina -= calculo;
         }
-        else {
-
-            float calculo = (Mathf.Abs(Input.GetAxis("Mouse X") + Mathf.Abs(Input.GetAxis("Mouse Y"))))*15f;
-            stamina = stamina - calculo ;
-
-        }
-
 
     }
 
     void Recargar() {
 
-        if (stamina < 200)
+        if (stamina < 100)
         {
 
-            stamina = stamina + 1;
+            stamina +=  20f*Time.deltaTime;
 
         }
         else {
 
-            stamina = 200;
+            stamina = 100;
             recharge = false;
+            mensaje.SetActive(false);
             BotonesState();
 
         }

@@ -10,7 +10,7 @@ public class MainMenuBehaviour : MonoBehaviour {
     private bool alreadyPressed;
 
     [Range(100, 1000)]
-    public float offsetXPlayButton = 200f;
+    public float offsetXPlayButton = 500f;
 
     public GameObject PlayButton;
 
