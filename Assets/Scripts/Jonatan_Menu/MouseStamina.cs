@@ -60,7 +60,7 @@ public class MouseStamina : MonoBehaviour {
         }
         else
         {
-            float calculo = Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y"))*5f;
+            float calculo = (Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y")))*5f;
             stamina -= calculo;
         }
 
